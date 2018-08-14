@@ -18,7 +18,7 @@
 ** memmove(3) instead. The memcpy() function returns the original value of dst.
 */
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void *ft_memcpy(void *dst, const void *src, size_t n)
 {
 	int i;
 	char *csrc;
