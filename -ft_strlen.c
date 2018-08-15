@@ -1,38 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/14 17:29:50 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/14 17:30:00 by obibik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
-* strlen, strnlen -- find length of string
-* The strlen() function computes the length of the string s.
-* The strlen() function returns the number of characters that precede the terminating NUL character.
+** strlen, strnlen -- find length of string
 */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	const char *str;
-	while (str = s)
-	{
-		++str;
-		*str;
-	}
-	return(str - s);
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
-int main()
-{
-	char *string = "Hello World";
-    printf("%lu\n", (unsigned long)ft_strlen(string));
-	return 0;
-}
-
-/* Result: 11 */
-
-// int my_strlen(char *string)
-// {
-// 	int length;
-// 	for (length = 0; *string != '\0', string++)
-// 	{
-// 	length++;
-// 	}
-// 	return(length);
-// }
+/*
+** int main()
+** {
+** 	char str[] = "Life is good.";
+** 	int result = ft_strlen(str);
+** 	printf("The length of the string is %d.\n", result);
+** 	return 0;
+** }
+*/
