@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
 ** memset -- fill a byte string with a byte value.
 ** The memset() function writes len bytes of value c

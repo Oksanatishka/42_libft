@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 17:30:26 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/14 17:30:29 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/14 17:35:41 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/14 17:35:44 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** stpcpy, stpncpy, strcpy, strncpy -- copy strings
+** isascii -- test for ASCII character
 */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+int		ft_isascii(int c)
 {
-	int		i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = src[i];
-	return (dst);
+	return (c >= 0 && c <= 127);
 }
 
 /*
-** int main ()
-** {
-**     char example[50];
+**  int main()
+**  {
+**   	char c, result;
 **
-**     strcpy(example, "Life is good!");
-**     printf("%s\n", example);
+**      c = '7';
+**    	result = ft_isascii(c);
+**      printf("The result is %d\n", result);
 **
-**    return(0);
-** }
+**      c = 'g';
+**    	result = ft_isascii(c);
+**      printf("The result is %d\n", result);
+**
+**      c = '+';
+**    	result = ft_isascii(c);
+**      printf("The result is %d\n", result);
+**
+**    	return 0;
+**  }
 */

@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 17:29:11 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/14 17:29:15 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/14 17:33:29 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/14 17:33:32 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** memchr -- locate byte in byte string
+** strchr, strrchr -- locate character in string
+** The strrchr() function is identical to strchr(),
+** except it locates the last occurrence of c.
 */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	const char	*sc;
-	size_t		i;
+	int		i;
+	int		k;
 
-	sc = (const char *)s;
-	i = -1;
-	while (++i < n)
-		if (*(sc + i) == (char)c)
-			return ((void *)sc + i);
-	return (NULL);
+	i = 0;
+	k = -1;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			k = i;
+		i++;
+	}
+	if (c == '\0')
+		return ((char *)&s[i]);
+	if (k == -1)
+		return (0);
+	return ((char *)&s[k]);
 }
 
 /*
@@ -35,10 +44,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 **    const char ch = '.';
 **    char *result;
 **
-**    result = memchr(str, ch, 11);
-**
-**    printf("String after character is %s\n", result);
-**
+**    result = ft_strrchr(str, ch);
+**    printf("String after a character is %s\n", result);
 **    return(0);
 ** }
 */

@@ -6,9 +6,11 @@
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 15:04:24 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/14 15:23:58 by obibik           ###   ########.fr       */
+/*   Updated: 2018/08/14 16:14:37 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /*
 ** memcpy -- copy memory area
@@ -18,7 +20,7 @@
 ** memmove(3) instead. The memcpy() function returns the original value of dst.
 */
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy (void *dst, const void *src, size_t n)
 {
 	int i;
 	char *csrc;
