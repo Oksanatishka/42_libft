@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:57:55 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:57:58 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/22 16:56:57 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/22 16:56:59 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Description Takes as a parameter the address of a string that need to be
-** freed with free(3), then sets its pointer to NULL.
-** Param. #1 The string’s address that needs to be freed and its pointer set
-** to NULL.
+** Description Outputs the integer n to the file descriptor fd.
+** Param. #1 The integer to print.
+** Param. #2 The file descriptor.
 ** Return value None.
-** Libc functions Free(3)
+** Libc functions write(2).
 */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (as)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		free(*as);
-		*as = NULL;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

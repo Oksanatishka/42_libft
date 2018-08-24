@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := libft.a
+NAME = libft.a
 CC = gcc -c
 INCLUDE = libft.h
-FLAGS = -Wall -Wextra -Werror
+FLAG = -Wall -Wextra -Werror
 AR = ar rc
 
 SRCS = *.c 
@@ -23,7 +23,7 @@ OBJ = *.o
 all: $(NAME)
 
 $(NAME): 
-	$(CC)  $(FLAGS) $(SRCS)
+	$(CC)  $(FLAG) $(SRCS)
 	$(AR)  $(NAME) $(OBJ)
 	ranlib $(NAME)
 

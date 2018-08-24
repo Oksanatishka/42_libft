@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-** Description 
+** itoa converts integer to string
 ** Allocate (with malloc(3)) and returns a “fresh” string ending
 ** with ’\0’ representing the integer n given as argument.
 ** Negative numbers must be supported. If the allocation fails,

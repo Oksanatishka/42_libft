@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** memcpy -- copy memory area
 ** The memcpy() function copies n bytes from memory area src
@@ -20,18 +18,20 @@
 ** memmove(3) instead. The memcpy() function returns the original value of dst.
 */
 
-void	*ft_memcpy (void *dst, const void *src, size_t n)
-{
-	int i;
-	char *csrc;
-	char *cdst;
+#include "libft.h"
 
-	csrc = (char *)src;
-	cdst = (char *)dst;
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
+	char	*d;
+	char	*s;
+
 	i = 0;
+	d = (char *)dst;
+	s = (char *)src;
 	while (i < n)
 	{
-		cdst[i] = csrc[i];
+		d[i] = s[i];
 		i++;
 	}
 	return (dst);

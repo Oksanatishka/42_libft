@@ -12,6 +12,10 @@
 
 /*
 ** strlen, strnlen -- find length of string
+**
+** We use a size_t because it is guaranteed to be big enough to contain
+** the size of the biggest object your system can handle. This way we can
+** display the absolute biggest string that our computer can handle.
 */
 
 #include "libft.h"

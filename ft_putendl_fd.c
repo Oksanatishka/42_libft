@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:55:36 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:55:38 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/22 16:56:14 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/22 16:56:17 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Description Outputs the character c to the standard output.
-** Param. #1 The character to output.
+** Outputs the string s to the file descriptor fd followed by a
+** ’\n’.
+** Param. #1 The string to output.
+** Param. #2 The file descriptor.
 ** Return value None.
 ** Libc functions write(2).
+**
+**
+** This function writes the string s to the file descriptor fd followed by a
+** '\n' to make a new line.
 */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	write(1, &c, 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
+
+/*
+** int main()
+** {
+** 	char str[20] = "Life is good.";
+** 	ft_putendl_fd(str, 1);
+** 	return (0);
+** }
+*/

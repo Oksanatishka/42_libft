@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-** Description Allocates (with malloc(3)) and returns an array of “fresh”
+** Allocates (with malloc(3)) and returns an array of “fresh”
 ** strings (all ending with ’\0’, including the array itself) obtained
 ** by spliting s using the character c as a delimiter.
 ** If the allocation fails the function returns NULL. Example
@@ -25,31 +25,62 @@
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+static int			ft_cntwrd(char const *s, char c)
 {
-	int		h;
-	int		i;
-	int		j;
-	char	**p;
+	unsigned int	i;
+	int				cntr;
 
-	h = 0;
-	i = -1;
-	if (!s)
-		return (NULL);
-	if (!(p = (char **)ft_memalloc(sizeof(char *) * (ft_wordcnt(s, c)) + 1)))
-		return (NULL);
-	while (!(p[h] = NULL) && (++i) < (int)ft_strlen(s))
+	i = 0;
+	cntr = 0;
+	while (s[i])
 	{
-		while (s[i] == c && s[i])
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
+			cntr++;
+		while (s[i] && (s[i] != c))
+			i++;
+	}
+	return (cntr);
+}
+
+static char			*ft_strndup(const char *s, size_t n)
+{
+	char			*str;
+
+	str = (char *)malloc(sizeof(char) * n + 1);
+	if (str == NULL)
+		return (NULL);
+	str = ft_strncpy(str, s, n);
+	str[n] = '\0';
+	return (str);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	int				i;
+	int				j;
+	int				k;
+	char			**tab;
+
+	i = 0;
+	k = 0;
+	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
+	if (tab == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		while (s[i] == c)
 			i++;
 		j = i;
 		while (s[i] && s[i] != c)
 			i++;
-		if (j < i)
+		if (i > j)
 		{
-			p[h] = ft_strnew(i - j + 1);
-			ft_strncpy(p[h++], (char *)s + j, (i - j));
+			tab[k] = ft_strndup(s + j, i - j);
+			k++;
 		}
 	}
-	return (p);
+	tab[k] = NULL;
+	return (tab);
 }

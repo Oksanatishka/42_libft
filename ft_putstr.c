@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:55:47 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:55:49 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/22 16:57:09 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/22 16:57:11 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Description Outputs the char c to the file descriptor fd.
-** Param. #1 The character to output.
-** Param. #2 The file descriptor.
+** Outputs the string s to the standard output.
+** Param. #1 The string to output.
 ** Return value None.
 ** Libc functions write(2).
 */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr(char const *s)
 {
-	write(fd, &c, 1);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
 }
+
+/*
+** int main () {
+**     char letter[20] = "Life if good.";
+**     ft_putstr(letter);
+**     return(0);
+** }
+*/

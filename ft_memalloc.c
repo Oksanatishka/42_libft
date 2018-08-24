@@ -11,12 +11,18 @@
 /* ************************************************************************** */
 
 /*
-** Description Allocates (with malloc(3)) and returns a “fresh” memory
+** Allocates (with malloc(3)) and returns a “fresh” memory
 ** area. The memory allocated is initialized to 0. If the allocation
 ** fails, the function returns NULL.
 ** Param. #1 The size of the memory that needs to be allocated.
 ** Return value The allocated memory area.
 ** Libc functions malloc(3)
+**
+**
+** We use malloc to allocate memory to our m variable based on the size
+** given in the parameter. If the allocation fails we return NULL. Otherwise
+** we then run the function ft_bzero on our allocated zone of memory m and
+** give it our size parameter. We then return our void variable m.
 */
 
 #include "libft.h"

@@ -35,7 +35,7 @@ char	*ft_strcpy(char *dst, const char *src)
 ** {
 **     char example[50];
 **
-**     strcpy(example, "Life is good!");
+**     ft_strcpy(example, "Life is good!");
 **     printf("%s\n", example);
 **
 **    return(0);

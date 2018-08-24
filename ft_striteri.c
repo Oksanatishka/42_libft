@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:59:23 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:59:25 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/22 16:58:34 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/22 16:58:37 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** Description Applies the function f to each character of the string passed
-** as argument by giving its index as first argument to create a
-** “fresh” new string (with malloc(3)) resulting from the successive
-** applications of f.
-** Param. #1 The string to map.
+** as argument, and passing its index as first argument. Each
+** character is passed by address to f to be modified if necessary.
+** Param. #1 The string to iterate.
 ** Param. #2 The function to apply to each character of s and its index.
-** Return value The “fresh” string created from the successive applications of
-** f.
-** Libc functions malloc(3)
+** Return value None.
+** Libc functions None.
 */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
-	char			*new;
 
-	if (!s || !f)
-		return (NULL);
-	new = ft_strnew(ft_strlen(s));
-	if (new == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		new[i] = f(i, s[i]);
+		f(i, s + i);
 		i++;
 	}
-	return (new);
 }

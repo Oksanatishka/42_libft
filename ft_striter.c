@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:56:57 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:56:59 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/22 16:58:23 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/22 16:58:25 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Description Outputs the integer n to the file descriptor fd.
-** Param. #1 The integer to print.
-** Param. #2 The file descriptor.
+** Applies the function f to each character of the string passed
+** as argument. Each character is passed by address to f to be
+** modified if necessary.
+** Param. #1 The string to iterate.
+** Param. #2 The function to apply to each character of s.
 ** Return value None.
-** Libc functions write(2).
+** Libc functions None.
 */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != '\0')
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		f(s + i);
+		i++;
 	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
 }

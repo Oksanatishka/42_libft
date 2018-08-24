@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** memccpy -- copy string until character found
 ** The memccpy() function copies bytes from string src to string dst.
@@ -22,27 +20,25 @@
 ** should not overlap, as the behavior is undefined.
 */
 
+#include "libft.h"
+
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int i;
-
-	char *cdst = (char *)dst;
-	char *csrc = (char *)src;
+	size_t	i;
+	char	*dst2;
+	char	*src2;
 
 	i = 0;
+	dst2 = (char *)dst;
+	src2 = (char *)src;
 	while (i < n)
 	{
-		if (csrc[i] != c)
-		{
-			cdst[i] = csrc[i];
-			i++;
-		}
-		else
-		{
-			break;
-		}
+		dst2[i] = src2[i];
+		if ((unsigned char)src2[i] == (unsigned char)c)
+			return ((char *)dst + i + 1);
+		i++;
 	}
-	return (dst);
+	return (NULL);
 }
 
 /*
