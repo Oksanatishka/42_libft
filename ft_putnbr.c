@@ -40,39 +40,20 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char const *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-}
-
 void	ft_putnbr(int n)
 {
-	unsigned int	nb;
-
 	if (n == -2147483648)
 		ft_putstr("-2147483648");
 	else if (n < 0)
 	{
 		ft_putchar('-');
-		nb = -n;
+		ft_putnbr(-n);
 	}
-	else if (nb >= 10)
+	else if (n >= 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putchar(nb % 10 + '0');
+		ft_putnbr(n / 10);
+		ft_putchar(n % 10 + '0');
 	}
 	else
-		ft_putchar(nb + '0');
+		ft_putchar(n + '0');
 }

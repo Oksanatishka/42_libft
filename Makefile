@@ -13,7 +13,7 @@
 NAME = libft.a
 CC = gcc -c
 INCLUDE = libft.h
-FLAG = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 AR = ar rc
 
 SRCS = *.c 
@@ -23,7 +23,7 @@ OBJ = *.o
 all: $(NAME)
 
 $(NAME): 
-	$(CC)  $(FLAG) $(SRCS)
+	$(CC)  $(FLAGS) $(SRCS)
 	$(AR)  $(NAME) $(OBJ)
 	ranlib $(NAME)
 

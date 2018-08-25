@@ -12,13 +12,21 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-# define BUFF_SIZE 100
-# define MALLCHECK(x) if (!x) return (-1);
-# define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
+
+/*
+** Libc functions
+*/
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -55,6 +63,10 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
+/*
+** Additional functions
+*/
+
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
@@ -81,24 +93,9 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-
-
-
-
-
-
-
-
-# ifndef IS_SPACE
-#  define IS_SPACE(x) (x==' '||x=='\n'||x=='\t')
-# endif
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+/*
+** Bonus functions
+*/
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -110,6 +107,5 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 /*
 ** Extra functions
 */
-
 
 #endif

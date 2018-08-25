@@ -28,6 +28,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	unsigned int	i;
 	char			*str;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
 	if (str == NULL)

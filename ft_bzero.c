@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** bzero -- write zeroes to a byte string
 ** The bzero() function writes n zeroed bytes to the string s.
 ** If n is zero, bzero() does nothing.
 */
 
+#include "libft.h"
+
 void	ft_bzero(void *s, size_t n)
 {
-	char *p;
+	char *tmp;
 
-	p = (char *)b;
+	tmp = (char *)s;
 	while (n > 0)
 	{
-		*p = 0;
-		p++;
+		*tmp = 0;
+		tmp++;
 		n--;
 	}
 	return ;

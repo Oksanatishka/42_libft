@@ -65,8 +65,8 @@ char				**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
-	if (tab == NULL)
+	if (!s || (!(tab = (char **)malloc(sizeof(char *) *
+						(ft_cntwrd(s, c)) + 1))))
 		return (NULL);
 	while (s[i])
 	{
