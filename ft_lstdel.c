@@ -52,10 +52,10 @@
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list	*tmp;
-	t_list	*next;
+	t_list *tmp;
+	t_list *next;
 
 	tmp = *alst;
 	if (del != NULL)

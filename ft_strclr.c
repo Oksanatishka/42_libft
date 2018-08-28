@@ -27,19 +27,28 @@
 ** a further positive reach than a regular int in case our string is
 ** incredibly long. It will be our counter.
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void ft_strclr(char *s)
 {
 	unsigned int i;
 
 	if (!s)
-		return ;
+		return;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		s[i] = '\0';
 		i++;
 	}
+}
+
+int main()
+{
+	char str[10] = "Hello.";
+	printf("The result is %s\n", str);
+	ft_strclr(str);
+	printf("The result is %s\n", str);
+	return 0;
 }

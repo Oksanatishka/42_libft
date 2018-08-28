@@ -22,13 +22,31 @@
 ** Return value The array of “fresh” strings result of the split.
 ** Libc functions malloc(3), free(3)
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-static int			ft_cntwrd(char const *s, char c)
+char *ft_strncpy(char *dest, const char *src, size_t len)
 {
-	unsigned int	i;
-	int				cntr;
+	size_t i;
+
+	i = 0;
+	while (src[i] != '\0' && (i < len))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < len)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+
+static int ft_cntwrd(char const *s, char c)
+{
+	unsigned int i;
+	int cntr;
 
 	i = 0;
 	cntr = 0;
@@ -44,9 +62,9 @@ static int			ft_cntwrd(char const *s, char c)
 	return (cntr);
 }
 
-static char			*ft_strndup(const char *s, size_t n)
+static char *ft_strndup(const char *s, size_t n)
 {
-	char			*str;
+	char *str;
 
 	str = (char *)malloc(sizeof(char) * n + 1);
 	if (str == NULL)
@@ -56,17 +74,18 @@ static char			*ft_strndup(const char *s, size_t n)
 	return (str);
 }
 
-char				**ft_strsplit(char const *s, char c)
+char **ft_strsplit(char const *s, char c)
 {
-	int				i;
-	int				j;
-	int				k;
-	char			**tab;
+	int i;
+	int j;
+	int k;
+	char **tab;
 
 	i = 0;
 	k = 0;
 	if (!s || (!(tab = (char **)malloc(sizeof(char *) *
-						(ft_cntwrd(s, c)) + 1))))
+										   (ft_cntwrd(s, c)) +
+									   1))))
 		return (NULL);
 	while (s[i])
 	{
@@ -83,4 +102,14 @@ char				**ft_strsplit(char const *s, char c)
 	}
 	tab[k] = NULL;
 	return (tab);
+}
+
+int main()
+{
+	char str[20] = "This is string.";
+	char **result = ft_strsplit(str, 'r');
+	printf("The result is %s\n", *result);
+	printf("The result is %s\n", result[0]);
+	printf("The result is %s\n", result[1]);
+	return 0;
 }

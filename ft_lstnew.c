@@ -42,12 +42,41 @@
 ** Last we set our new link list new's next element to NULL so that we know
 ** that we are at the end of the list. We then return our new link.
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_list		*new;
+	char *d;
+	char *s;
+	size_t i;
+
+	d = (char *)dst;
+	s = (char *)src;
+	i = 0;
+	if (d == s)
+		return (d);
+	if (s < d)
+	{
+		i = len;
+		while (i--)
+			((char *)d)[i] = ((char *)s)[i];
+	}
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)d)[i] = ((char *)s)[i];
+			i++;
+		}
+	}
+	return (d);
+}
+
+t_list *ft_lstnew(void const *content, size_t content_size)
+{
+	t_list *new;
 
 	new = (t_list *)malloc(sizeof(t_list) * 1);
 	if (new == NULL)
@@ -67,4 +96,13 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	new->next = NULL;
 	return (new);
+}
+
+int main()
+{
+	char content[20] = "CONTENT.";
+	t_list *result = ft_lstnew((void *)content, 16);
+	printf("The content is %s", (char *)result->content);
+	printf("The content size is %zu", result->content_size);
+	return 0;
 }

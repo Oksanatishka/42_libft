@@ -19,19 +19,33 @@
 ** Return value None.
 ** Libc functions None.
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void ft_striter(char *s, void (*f)(char *))
 {
-	unsigned int	i;
+	unsigned int i;
 
 	if (!s || !f)
-		return ;
+		return;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		f(s + i);
 		i++;
 	}
+}
+
+void my_func(char *str)
+{
+	printf("My inner function %s\n", str);
+}
+
+int main()
+{
+	char str[10] = "Hello.";
+	printf("The result is %s\n", str);
+	ft_striter(str, my_func);
+	printf("The result is %s\n", str);
+	return 0;
 }

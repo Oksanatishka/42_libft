@@ -20,13 +20,13 @@
 ** f.
 ** Libc functions malloc(3)
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char *ft_strmap(char const *s, char (*f)(char))
 {
-	unsigned int	i;
-	char			*str;
+	unsigned int i;
+	char *str;
 
 	if (!s)
 		return (NULL);
@@ -41,4 +41,29 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+size_t ft_strlen(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char my_func(char str)
+{
+	printf("My inner function %c\n", str);
+	return str;
+}
+
+int main()
+{
+	char str[10] = "Hello.";
+	printf("The result is %s\n", str);
+	ft_strmap(str, my_func);
+	printf("The result is %s\n", str);
+	return 0;
 }

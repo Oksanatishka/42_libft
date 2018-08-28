@@ -24,16 +24,37 @@
 ** we then run the function ft_bzero on our allocated zone of memory m and
 ** give it our size parameter. We then return our void variable m.
 */
-
+#include <stdio.h>
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void ft_bzero(void *s, size_t n)
 {
-	void	*mem;
+	char *tmp;
+
+	tmp = (char *)s;
+	while (n > 0)
+	{
+		*tmp = 0;
+		tmp++;
+		n--;
+	}
+	return;
+}
+
+void *ft_memalloc(size_t size)
+{
+	void *mem;
 
 	mem = malloc(size);
 	if (!mem)
 		return (NULL);
 	ft_bzero(mem, size);
 	return (mem);
+}
+
+int main()
+{
+	char *result = ft_memalloc(5);
+	printf("The result is %s\n", result);
+	return 0;
 }
