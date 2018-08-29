@@ -21,64 +21,15 @@
 ** Return value The “fresh” trimmed string or a copy of s.
 ** Libc functions malloc(3)
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-char *ft_strcpy(char *dst, const char *src)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = src[i];
-	return (dst);
-}
-
-size_t ft_strlen(const char *s)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-void ft_bzero(void *s, size_t n)
-{
-	char *tmp;
-
-	tmp = (char *)s;
-	while (n > 0)
-	{
-		*tmp = 0;
-		tmp++;
-		n--;
-	}
-	return;
-}
-
-void *ft_memalloc(size_t size)
-{
-	void *mem;
-
-	mem = malloc(size);
-	if (!mem)
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
-}
-
-char *ft_strtrim(char const *s)
-{
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
-	char *str;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
+	char			*str;
 
 	i = 0;
 	k = 0;
@@ -102,10 +53,12 @@ char *ft_strtrim(char const *s)
 	return (str);
 }
 
-int main()
-{
-	char s[30] = " \t\nThis is string. \tContinue.";
-	char *result = ft_strtrim(s);
-	printf("The result is %s\n", result);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char s[30] = " \t\nThis is string. \tContinue.";
+** 	char *result = ft_strtrim(s);
+** 	printf("The result is %s\n", result);
+** 	return 0;
+** }
+*/

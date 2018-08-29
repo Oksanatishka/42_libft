@@ -107,5 +107,5 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 /*
 ** Extra functions
 */
-
+int					ft_cntwrd(char const *s, char c);
 #endif

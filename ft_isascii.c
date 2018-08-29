@@ -13,10 +13,10 @@
 /*
 ** isascii -- test for ASCII character
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-int ft_isascii(int c)
+int		ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
@@ -41,27 +41,3 @@ int ft_isascii(int c)
 **    	return 0;
 **  }
 */
-
-int main()
-{
-	char c, result;
-	long g;
-
-	c = '7';
-	result = ft_isascii(c);
-	printf("The result is %d\n", result);
-
-	c = 'g';
-	result = ft_isascii(c);
-	printf("The result is %d\n", result);
-
-	c = '+';
-	result = ft_isascii(c);
-	printf("The result is %d\n", result);
-
-	g = '\xF8';
-	result = ft_isascii(g);
-	printf("The result is %d\n", result);
-
-	return 0;
-}

@@ -17,33 +17,13 @@
 ** Param. #1 The size of the memory that needs to be allocated.
 ** Return value The allocated memory area.
 ** Libc functions malloc(3)
-**
-**
-** We use malloc to allocate memory to our m variable based on the size
-** given in the parameter. If the allocation fails we return NULL. Otherwise
-** we then run the function ft_bzero on our allocated zone of memory m and
-** give it our size parameter. We then return our void variable m.
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	*ft_memalloc(size_t size)
 {
-	char *tmp;
-
-	tmp = (char *)s;
-	while (n > 0)
-	{
-		*tmp = 0;
-		tmp++;
-		n--;
-	}
-	return;
-}
-
-void *ft_memalloc(size_t size)
-{
-	void *mem;
+	void	*mem;
 
 	mem = malloc(size);
 	if (!mem)
@@ -52,9 +32,11 @@ void *ft_memalloc(size_t size)
 	return (mem);
 }
 
-int main()
-{
-	char *result = ft_memalloc(5);
-	printf("The result is %s\n", result);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char *result = ft_memalloc(5);
+** 	printf("The result is %s\n", result);
+** 	return 0;
+** }
+*/

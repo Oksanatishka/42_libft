@@ -21,13 +21,6 @@
 ** Param. #1 The adress of a pointer to a link that needs to be freed.
 ** Return value None.
 ** Libc functions free(3)
-**
-** First we check to make sure that the parameters that were passed into our
-** function are not NULL. If they are not we then run our parameter passed
-** function del by giving it's parameters our link alst's content and
-** content_size. Once the function has deleted alst's content we the free
-** the memory that was allocated to alst and then set it to NULL. Thus
-** deleting on link in our list.
 */
 
 #include "libft.h"

@@ -23,60 +23,13 @@
 ** Param. #2 The size of the content of the new link.
 ** Return value The new link.
 ** Libc functions malloc(3), free(3)
-**
-**
-** We first declare a new t_list structure called 'new'
-** We then proceed to allocate the memory required for the stucture to exist
-** In the event that the memory allocation failed we return NULL
-**
-** If the parameter of content is NULL we set the content element to NULL
-** and the content_size element to 0 regardless of the parameter given
-**
-** If the above is not the case we move on. We allocate memory for our new
-** linked list's element content by using our parameter of content_size.
-** If the allocation fails for this we return NULL. If it works we use our
-** ft_memmove function to move the data from our parameters into our linked
-** new's content element. And last we set our link new's content_size to
-** our parameter content_size
-**
-** Last we set our new link list new's next element to NULL so that we know
-** that we are at the end of the list. We then return our new link.
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char *d;
-	char *s;
-	size_t i;
-
-	d = (char *)dst;
-	s = (char *)src;
-	i = 0;
-	if (d == s)
-		return (d);
-	if (s < d)
-	{
-		i = len;
-		while (i--)
-			((char *)d)[i] = ((char *)s)[i];
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			((char *)d)[i] = ((char *)s)[i];
-			i++;
-		}
-	}
-	return (d);
-}
-
-t_list *ft_lstnew(void const *content, size_t content_size)
-{
-	t_list *new;
+	t_list		*new;
 
 	new = (t_list *)malloc(sizeof(t_list) * 1);
 	if (new == NULL)
@@ -98,11 +51,13 @@ t_list *ft_lstnew(void const *content, size_t content_size)
 	return (new);
 }
 
-int main()
-{
-	char content[20] = "CONTENT.";
-	t_list *result = ft_lstnew((void *)content, 16);
-	printf("The content is %s", (char *)result->content);
-	printf("The content size is %zu", result->content_size);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char content[20] = "CONTENT.";
+** 	t_list *result = ft_lstnew((void *)content, 16);
+** 	printf("The content is %s", (char *)result->content);
+** 	printf("The content size is %zu", result->content_size);
+** 	return 0;
+** }
+*/

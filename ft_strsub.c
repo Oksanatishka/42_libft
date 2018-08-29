@@ -22,13 +22,13 @@
 ** Return value The substring.
 ** Libc functions malloc(3)
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-char *ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	unsigned int i;
-	char *str;
+	unsigned int	i;
+	char			*str;
 
 	if (!s)
 		return (NULL);
@@ -45,10 +45,12 @@ char *ft_strsub(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-int main()
-{
-	char str[20] = "This is string.";
-	char *result = ft_strsub(str, 9, 2);
-	printf("The  result is %s\n", result);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char str[20] = "This is string.";
+** 	char *result = ft_strsub(str, 9, 2);
+** 	printf("The  result is %s\n", result);
+** 	return 0;
+** }
+*/

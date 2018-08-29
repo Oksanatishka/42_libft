@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_cntwrd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obibik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 16:55:36 by obibik            #+#    #+#             */
-/*   Updated: 2018/08/22 16:55:38 by obibik           ###   ########.fr       */
+/*   Created: 2018/08/28 12:41:01 by obibik            #+#    #+#             */
+/*   Updated: 2018/08/28 12:41:28 by obibik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Outputs the character c to the standard output.
-** Param. #1 The character to output.
-** Return value None.
-** Libc functions write(2).
+** Extra function for ft_strsplit.c
 */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_cntwrd(char const *s, char c)
 {
-	write(1, &c, 1);
-}
+	unsigned int	i;
+	int				cntr;
 
-/*
-** int main () {
-**     char letter = 'A';
-**     ft_putchar(letter);
-**     return(0);
-** }
-*/
+	i = 0;
+	cntr = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
+			cntr++;
+		while (s[i] && (s[i] != c))
+			i++;
+	}
+	return (cntr);
+}

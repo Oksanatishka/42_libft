@@ -18,39 +18,15 @@
 ** Param. #2 The suffix string.
 ** Return value The “fresh” string result of the concatenation of the 2 strings.
 ** Libc functions malloc(3)
-**
-**
-** We begin by declaring three variables. The first two will be counters we
-** will use to move through our strings. The third is the new string that
-** we will be allocating memory to in order to return the concatenation of
-** our parameter strings.
-**
-** If the allocation failed we will return NULL.
-** If the allocation worked we begin our concatenation of our given strings.
-** We start with s1 with a standard string loop saying that as long as we
-** have not reached the end of the string, continue. We place the index
-** of both our new string str and our parameter s1 at i which at this
-** moment is 0. We then run through the length of s1 placing each character
-** in s1 into str. Once this has finished we continue to the next loop.
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-char *ft_strjoin(char const *s1, char const *s2)
-{
-	int i;
-	int j;
-	char *str;
+	int		i;
+	int		j;
+	char	*str;
 
 	if (!s1 || !s2)
 		return (NULL);
@@ -73,13 +49,15 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-int main()
-{
-	char s1[10] = "String 1.";
-	char s2[10] = "String 2.";
-	char *result = ft_strjoin(s1, s2);
-	printf("The result is %s\n", result);
-	printf("s1 doesn't change: %s\n", s1);
-	printf("s2 doesn't change: %s\n", s2);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char s1[10] = "String 1.";
+** 	char s2[10] = "String 2.";
+** 	char *result = ft_strjoin(s1, s2);
+** 	printf("The result is %s\n", result);
+** 	printf("s1 doesn't change: %s\n", s1);
+** 	printf("s2 doesn't change: %s\n", s2);
+** 	return 0;
+** }
+*/

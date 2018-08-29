@@ -18,31 +18,23 @@
 ** Return value 1 or 0 according to if the 2 strings are identical or not.
 ** Libc functions None.
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
-{
-	int i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int ft_strequ(char const *s1, char const *s2)
+int		ft_strequ(char const *s1, char const *s2)
 {
 	if (!s1 || !s2)
 		return (-1);
 	return (ft_strcmp(s1, s2) ? 0 : 1);
 }
 
-int main()
-{
-	char s1[10] = "String 2.";
-	char s2[10] = "String 2.";
-	int result = ft_strequ(s1, s2);
-	printf("The result is %d\n", result);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char s1[10] = "String 2.";
+** 	char s2[10] = "String 2.";
+** 	int result = ft_strequ(s1, s2);
+** 	printf("The result is %d\n", result);
+** 	return 0;
+** }
+*/

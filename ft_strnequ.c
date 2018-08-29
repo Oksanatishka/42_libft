@@ -21,35 +21,22 @@
 ** Libc functions None.
 */
 
-#include <stdio.h>
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	while (*s1 && *s2 && *s1 == *s2 && (int)n > 0)
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n)
-		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-	else
-		return (0);
-}
-
-int ft_strnequ(char const *s1, char const *s2, size_t n)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
 	if (!s1 || !s2)
 		return (-1);
 	return (ft_strncmp(s1, s2, n) ? 0 : 1);
 }
 
-int main()
-{
-	char s1[20] = "String 22222.";
-	char s2[10] = "String 2.";
-	int result = ft_strnequ(s1, s2, 3);
-	printf("The result is %d\n", result);
-	return 0;
-}
+/*
+** int main()
+** {
+** 	char s1[20] = "String 22222.";
+** 	char s2[10] = "String 2.";
+** 	int result = ft_strnequ(s1, s2, 3);
+** 	printf("The result is %d\n", result);
+** 	return 0;
+** }
+*/

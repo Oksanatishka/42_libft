@@ -16,17 +16,17 @@
 ** The two strings may overlap; the copy is always done in a non-destructive
 ** manner. The memmove() function returns the original value of dst.
 */
-#include <stdio.h>
+
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d;
-	char *s;
-	size_t i;
+	char	*d;
+	char	*s;
+	size_t	i;
 
-	d = (char *)dst;
-	s = (char *)src;
+	d = (char*)dst;
+	s = (char*)src;
 	i = 0;
 	if (d == s)
 		return (d);
@@ -34,14 +34,14 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 	{
 		i = len;
 		while (i--)
-			((char *)d)[i] = ((char *)s)[i];
+			((char*)d)[i] = ((char*)s)[i];
 	}
 	else
 	{
 		i = 0;
 		while (i < len)
 		{
-			((char *)d)[i] = ((char *)s)[i];
+			((char*)d)[i] = ((char*)s)[i];
 			i++;
 		}
 	}
@@ -65,12 +65,3 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 ** 	return 0;
 ** }
 */
-
-int main()
-{
-	char dst[100] = "Libc is";
-	char src[100] = "the standard library.";
-	ft_memmove(dst, src, 5);
-	printf("dst after memset(): %s\n", dst);
-	return 0;
-}

@@ -21,7 +21,6 @@
 ** single digit numbers and we will convert those int numbers into characters
 ** that we will display on the standard output using our ft_putchar function.
 **
-**
 ** We start by seeing if the int passed in parameter is -2147483648. The
 ** number 2147483648 is the largest number an int variable can possibly
 ** hold. When a negative sign is placed in front of it our function is not
@@ -40,23 +39,7 @@
 
 #include "libft.h"
 
-void ft_putstr(char const *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-}
-void ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 		ft_putstr("-2147483648");
@@ -74,9 +57,11 @@ void ft_putnbr(int n)
 		ft_putchar(n + '0');
 }
 
-int main()
-{
-	int nmb = 432;
-	ft_putnbr(nmb);
-	return (0);
-}
+/*
+** int main()
+** {
+** 	int nmb = 432;
+** 	ft_putnbr(nmb);
+** 	return (0);
+** }
+*/
